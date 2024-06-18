@@ -7,17 +7,12 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class RelationshipsResource extends JsonResource
 {
-    /**
-     * Transform the resource into an array.
-     *
-     * @return array<string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->id,
             'email' => $this->email,
-            'relations' // {'id' => 2, 'email' => 'test2@test.ru', 'type' => 0}
+            'type' => $this->pivot->type,
         ];
     }
 }

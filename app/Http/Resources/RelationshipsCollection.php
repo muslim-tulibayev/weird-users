@@ -9,11 +9,6 @@ class RelationshipsCollection extends ResourceCollection
 {
     public static $wrap = 'relationships';
 
-    /**
-     * Transform the resource collection into an array.
-     *
-     * @return array<int|string, mixed>
-     */
     public function toArray(Request $request): array
     {
         return parent::toArray($request);
