@@ -49,10 +49,7 @@ class UserController extends Controller
             ->when($request->has('type'), fn($q) => $q
                 ->wherePivot('type', $request->type));
 
-//        return $users->limit(2)->get();
-
-
-        $users = $users->paginate($request->paginate ?? 20);
+        $users = $users->paginate($request->query('per_page', 20));
 
         return RelationshipsCollection::make($users);
     }
